@@ -15,10 +15,10 @@ jobs:
       - name: Set up Python
         uses: actions/setup-python@v4
         with:
-          python-verion: '3.9'
+          python-version: '3.9'
 
       - name: Run script
         env:
-          MY_EMAIL: ${{ secres.MY_EMAIL }}
-          MY_PASSWORD: ${{ secres.MY_PASSWORD }}
+          MY_EMAIL: ${{ secrets.MY_EMAIL }}
+          MY_PASSWORD: ${{ secrets.MY_PASSWORD }}
         run: python main.py
