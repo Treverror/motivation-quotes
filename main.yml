@@ -1,0 +1,24 @@
+name: Motivational Quotes
+
+on:
+  schedule:
+    - cron: '0 * * * *'
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-verion: '3.9'
+
+      - name: Run script
+        env:
+          MY_EMAIL: ${{ secres.MY_EMAIL }}
+          MY_PASSWORD: ${{ secres.MY_PASSWORD }}
+        run: python main.py
